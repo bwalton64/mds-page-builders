@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<ruleset name="MDS Page Builders">
+	<description>WordPress Coding Standards and PHP 8.0+ compatibility rules for MDS Page Builders.</description>
+
+	<file>.</file>
+
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/build/*</exclude-pattern>
+	<exclude-pattern>/dist/*</exclude-pattern>
+	<exclude-pattern>/tests/*</exclude-pattern>
+	<exclude-pattern>/.agents/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg value="ps"/>
+	<arg name="colors"/>
+
+	<config name="minimum_wp_version" value="7.0"/>
+	<config name="testVersion" value="8.0-"/>
+
+	<rule ref="WordPress">
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+	</rule>
+
+	<rule ref="PHPCompatibilityWP"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="mds-page-builders"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="MDS\PageBuilders"/>
+				<element value="mds_pb"/>
+				<element value="MDS_PB"/>
+				<element value="mds_rm"/>
+				<element value="bricks"/>
+			</property>
+		</properties>
+	</rule>
+</ruleset>
