@@ -1,20 +1,23 @@
 <?php
 /**
  * Plugin Name: MDS Page Builders
+ * Plugin URI: https://mustydungeon.com
  * Description: Pro page builder elements and Dynamic Data integrations (Bricks Builder, with future Divi 5 support) for MDS Release Manager.
  * Version: 1.0.0
  * Requires at least: 7.0
  * Requires PHP: 8.0
  * Requires Plugins: mds-release-manager
- * Update URI: https://github.com/bwalton64/mds-page-builders
+ * Update URI: https://api.mustydungeon.com
  * Text Domain: mds-page-builders
  * Domain Path: /languages
  * Author: Musty Dungeon Studios
  * Author URI: https://mustydungeon.com
- * License: GPL-2.0-or-later
- * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * License: GPL-3.0-or-later
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  *
- * @package MDS\PageBuilders
+ * @package   MDS\PageBuilders
+ * @copyright 2026 Musty Dungeon Studios (Walton International Business Group LLC)
+ * @license   GPL-3.0-or-later
  */
 
 declare(strict_types=1);
@@ -54,22 +57,12 @@ add_action(
 add_action(
 	'mds_rm_loaded',
 	static function (): void {
-		if ( class_exists( \MDS\ReleaseManager\Api\ExtensionApi::class ) ) {
-			\MDS\ReleaseManager\Api\ExtensionApi::register_github_updater(
-				array(
-					'basename'       => MDS_PB_BASENAME,
-					'slug'           => 'mds-page-builders',
-					'repo'           => 'bwalton64/mds-page-builders',
-					'version'        => MDS_PB_VERSION,
-					'name'           => 'MDS Page Builders',
-					'author'         => 'Musty Dungeon Studios',
-					'homepage'       => 'https://mustydungeon.com',
-					'token_constant' => 'MDS_PB_GITHUB_TOKEN',
-					'requires'       => '7.0',
-					'tested'         => '7.0',
-					'requires_php'   => '8.0',
-				)
-			);
+		$mds_pb_gw_sdk = dirname( untrailingslashit( MDS_PB_PATH ) ) . '/mds-cloud-gateway/sdk/GatewayClient.php';
+		if ( ! class_exists( \MDS\GatewayClient\GatewayClient::class ) && is_readable( $mds_pb_gw_sdk ) ) {
+			require_once $mds_pb_gw_sdk;
+		}
+		if ( class_exists( \MDS\GatewayClient\GatewayClient::class ) ) {
+			\MDS\GatewayClient\GatewayClient::boot_companion( 'mds-page-builders', MDS_PB_BASENAME, MDS_PB_VERSION, MDS_PB_PATH );
 		}
 
 		if ( class_exists( \MDS\PageBuilders\Plugin::class ) ) {

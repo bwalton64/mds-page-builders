@@ -5,8 +5,8 @@ Requires at least: 7.0
 Tested up to: 7.x
 Requires PHP: 8.0
 Stable tag: 1.0.0
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Native Tier 2 page-builder elements and Dynamic Data integrations (Bricks Builder) for MDS Release Manager.
 

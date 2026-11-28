@@ -1,32 +1,32 @@
 {
-	"name": "mds/mds-page-builders",
-	"description": "Pro page builder elements and Dynamic Data integrations (Bricks Builder, future Divi 5) for MDS Release Manager.",
-	"type": "wordpress-plugin",
-	"version": "1.0.0",
-	"license": "GPL-2.0-or-later",
-	"require": {
-		"php": ">=8.0"
-	},
-	"require-dev": {
-		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-		"phpcompatibility/phpcompatibility-wp": "^2.1",
-		"squizlabs/php_codesniffer": "^3.11",
-		"wp-coding-standards/wpcs": "^3.1"
-	},
-	"autoload": {
-		"psr-4": {
-			"MDS\\PageBuilders\\": "src/"
-		}
-	},
-	"config": {
-		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": true
-		},
-		"optimize-autoloader": true,
-		"sort-packages": true
-	},
-	"scripts": {
-		"phpcs": "phpcs",
-		"phpcbf": "phpcbf"
-	}
+  "name": "mds/mds-page-builders",
+  "description": "Pro page builder elements and Dynamic Data integrations (Bricks Builder, future Divi 5) for MDS Release Manager.",
+  "type": "wordpress-plugin",
+  "version": "1.0.0",
+  "license": "GPL-3.0-or-later",
+  "require": {
+    "php": ">=8.0"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "squizlabs/php_codesniffer": "^3.11",
+    "wp-coding-standards/wpcs": "^3.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "MDS\\PageBuilders\\": "src/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "scripts": {
+    "phpcs": "phpcs",
+    "phpcbf": "phpcbf"
+  }
 }
